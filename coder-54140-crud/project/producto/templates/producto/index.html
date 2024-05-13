@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Producto
+{% endblock title %}
+
+{% block body_title %}
+    App Producto
+{% endblock body_title %}
+
+{% block content %}
+<div class="row gx-4 gx-lg-6 m-5" style="width:90vw ">
+    
+    {% for producto in productocategoria %}
+    {% include 'core/components/card.html' with titulo="{{producto.id}}"  texto="{{producto.categoria}}" %}
+        
+     {% endfor %}    
+
+ 
+</div>    
+{% endblock content %}
