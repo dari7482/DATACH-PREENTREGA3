@@ -21,7 +21,7 @@ def avatar_create(request):
              return redirect('core:usersadmin')   
     else:               
         form = AvatarForm()
-        return render(request, "avatar/load_avatar.html",{"form": form})
+    return render(request, "avatar/load_avatar.html",{"form": form})
 
   
     

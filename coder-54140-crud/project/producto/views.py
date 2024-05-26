@@ -31,7 +31,7 @@ def productoNuevo_create(request):
             return redirect("producto:index")    
      else:
           form = ProductoCategoriaForm()
-          return render(request, "producto/productocategoria_form.html", {"form": form})
+     return render(request, "producto/productocategoria_form.html", {"form": form})
 
 
 

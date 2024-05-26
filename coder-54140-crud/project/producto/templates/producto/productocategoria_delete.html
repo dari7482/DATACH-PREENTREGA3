@@ -21,8 +21,7 @@
 <div class="row gx-4 gx-lg-6 m-5" style="width:90vw ">
     
     {% for producto in productocategoria %}
-    {% include 'core/components/card.html' with titulo="{{producto.id}}"  texto="{{producto.categoria}}" %}
-        
+        {% include 'core/components/card.html'  titulo="{{producto.id}}"  texto="{{producto.categoria}}" %}        
      {% endfor %}    
 
 
