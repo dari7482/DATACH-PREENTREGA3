@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}
     Producto
@@ -9,13 +10,20 @@
 {% endblock body_title %}
 
 {% block content %}
-<div class="row gx-4 gx-lg-6 m-5" style="width:90vw ">
-    
-    {% for producto in productocategoria %}
-    {% include 'core/components/card.html' with titulo="{{producto.id}}"  texto="{{producto.categoria}}" %}
-        
-     {% endfor %}    
 
- 
-</div>    
+        <div class="row gx-4 gx-lg-12 m-5">
+            <form action="{% url 'producto:index' %}" method="get">
+                <input type="text" name="busqueda" placeholder="Buscar...">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </form>
+        </div>
+
+
+        <div class="row gx-4 gx-lg-6 m-5" style="width:90vw ">            
+            {% for producto in productocategoria %}
+            {% include 'core/components/card.html' with titulo="{{producto.id}}"  texto="{{producto.categoria}}" %}              
+            {% endfor %}         
+        </div>    
+    
+
 {% endblock content %}

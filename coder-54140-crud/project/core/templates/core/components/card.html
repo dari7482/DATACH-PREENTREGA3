@@ -5,16 +5,19 @@
         <div class="card-body "  >
             <h2 class="card-title">{{producto.nombre}}</h2>
             <p class="card-text">{{ producto.categoria }}</p>
-            {% if producto.id < 4 %}
-
-            <img src="{% static 'core/img/' %}{{ producto.id }}.png"  style="width:330px ; height:auto% ;object-fit: cover" alt="...">
-            
+            {% if producto.id < 12 %}
+            <img src="{% static 'core/img/' %}{{ producto.id }}.png"  style="width:330px ; height:auto% ;object-fit: cover" alt="...">            
             {% else %}
             <img src="{% static 'core/img/comics.jpg' %}"  style="width:330px ; height:auto% ;object-fit: cover" alt="...">   
             {% endif %}            
         </div>
         <div>
-            <div class="card-footer" style="display:flex;justify-content:space-between" ><a class="btn btn-primary btn-sm" href="#!">More Info</a>
+            <div class="card-footer" style="display:flex;justify-content:space-between" >
+                <a class="btn btn-info btn-sm" href="{% url 'producto:producto_detail' producto.id %}">More Info</a>
+                {% if user.username == "admin" %}     
+                    <a class="btn btn-primary btn-sm" href="{% url 'producto:producto_edit' producto.id %}">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'producto:producto_delete' producto.id %} ">Remove</a>
+                {% endif %}  
                 <div>{{producto.id}}</div>
             </div>
            

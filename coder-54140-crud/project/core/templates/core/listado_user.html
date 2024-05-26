@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="alert alert-info" role="alert" style="auto ;height:auto;position:absolute; top:20vh; left:20vw">  
+    <table class="table table-striped">   
+        <thead>
+            <th scope="col">ID</th>
+            <th scope="col">User</th>    
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Last Login</th>
+            <th scope="col">Email</th>
+            <th scope="col">admin?</th>
+        </thead>   
+        <tbody>
+         
+        {% for user in users %} 
+        <tr>
+            <td>
+                {{ user.id }}
+            </td>
+        <td>
+            {{ user.username }}
+        </td>
+    
+        </td>
+        <td>
+            {{ user.first_name }}        
+        </td>    
+        <td>
+            {{ user.last_name }}
+        </td>
+        <td>
+            {{ user.last_login }}
+        </td>
+        <td>      
+            {{ user.email }}
+        </td>     
+        <td>      
+            {{ user.is_superuser }}
+       </td>   
+        
+    </tr>
+        {% endfor %} 
+   
+    </tbody>  
+    </table>    
+   
+  
+              
+           
+    
+        <a href="{% url 'core:index' %}" class="btn btn-secondary ">Cancelar</a>
+   
+
+</div>
+    <img src="{% static 'core/img/comics.jpg' %}"  style="width:100% ; height:90vh ;object-fit: cover" alt="...">
+
+
+  
+{% endblock content %}

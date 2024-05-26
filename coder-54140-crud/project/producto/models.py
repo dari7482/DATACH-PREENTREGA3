@@ -1,5 +1,3 @@
-from turtle import mode
-from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -31,11 +29,11 @@ class Producto(models.Model):
         blank=True,
         verbose_name="descripción",
         
-    ),
-    precio= models.DecimalField(verbose_name="precio"),
+    ),    
     categoria=models.CharField(max_length=20)
     tipo_prod_id=models.ForeignKey(Categoria, verbose_name="Categoria", on_delete=models.SET_NULL,null=True)
     editorial_id=models.ForeignKey(Editorial, verbose_name="Editorial", on_delete=models.SET_NULL,null=True)
+    precio= models.DecimalField(verbose_name="precio", max_digits=10, decimal_places=2,null=True)
 
     def __str__(self) -> str:
         """Retorna una instancia del modelo en forma de cadena de texto"""

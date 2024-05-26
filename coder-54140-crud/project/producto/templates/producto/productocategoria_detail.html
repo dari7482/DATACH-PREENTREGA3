@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+    Producto | Categoría de Productos
+{% endblock title %}
+{% block body_title %}
+  
+{% endblock body_title %}
+{% block content %}
+<div class="col-md-12 mb-5" >
+    <div style="display:flex ; justify-content:center;margin:15px">    
+        <div class="card h-40 " style="width:400px" >           
+                <div class="card-body "  >
+                    <h2 class="card-title">{{producto.nombre}}</h2>
+                    <p class="card-text">{{ producto.categoria }}</p>
+                    {% if producto.id < 12 %}
+
+                    <img src="{% static 'core/img/' %}{{ producto.id }}.png"  style="width:330px ; height:auto% ;object-fit: cover" alt="...">
+                    
+                    {% else %}
+                    <img src="{% static 'core/img/comics.jpg' %}"  style="width:330px ; height:auto% ;object-fit: cover" alt="...">   
+                    {% endif %}            
+                </div>
+                <div>
+                    <div class="card-footer" style="display:flex;justify-content:space-between" >                   
+                        <div>{{producto.id}}</div>
+                    </div>           
+                </div>
+                
+        </div> 
+        <div class="card h-40 " style="width:400px" >           
+            <div class="card-body "  >
+                
+            <div style="margin:50px">
+             
+                    <div style="margin-bottom:10px" >ID: {{producto.id}}</div>
+                    <div style="margin-bottom:10px" >Producto: {{producto.nombre}}</div>
+                    <div style="margin-bottom:10px">${{producto.precio}}</div>
+                    <div style="margin-bottom:10px">Categoria: {{producto.categoria}}</div>
+
+             
+            </div>
+            
+    </div> 
+               
+    </div>
+
+</div>
+{% endblock content %}
